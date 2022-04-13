@@ -36,7 +36,7 @@ class WallServiceTest {
         val result = service.add(post).id
         val notZero: Boolean
         if (result > 0) notZero = true else notZero = false
-        assertEquals(false, notZero)
+        assertEquals(true, notZero)
     }
 
     @Test
