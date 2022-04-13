@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">PostAndServiceStart</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Main.kt</span></div><h1>Main.kt</h1><pre class="source lang-java linenums">fun main() {
+
+<span class="nc" id="L3">    val postOne = Post(</span>
+<span class="nc" id="L4">        id = 0,</span>
+<span class="nc" id="L5">        ownerId = 666,</span>
+<span class="nc" id="L6">        fromId = 111,</span>
+<span class="nc" id="L7">        createdBy = 5656,</span>
+<span class="nc" id="L8">        date = 12042022,</span>
+<span class="nc" id="L9">        text = &quot;Sun shine and it is okey&quot;,</span>
+<span class="nc" id="L10">        replyOwnerId = 7890,</span>
+<span class="nc" id="L11">        replyPostId = 2346,</span>
+<span class="nc" id="L12">        friendsOnly = false,</span>
+<span class="nc" id="L13">        comments = Comments(count = 18, canPost = true, groupsCanPost = false, canClose = true, canOpen = true),</span>
+<span class="nc" id="L14">        copyright = &quot;newspaper Pravda&quot;,</span>
+<span class="nc" id="L15">        likes = Likes(count = 25, userLikes = true, canLike = false, canPublish = true),</span>
+<span class="nc" id="L16">        reposts = Reposts(count = 3, userReposted = true),</span>
+<span class="nc" id="L17">        viewsCount = 15,</span>
+<span class="nc" id="L18">        postType = &quot;post&quot;,</span>
+<span class="nc" id="L19">        signerId = 8965,</span>
+<span class="nc" id="L20">        canPin = true,</span>
+<span class="nc" id="L21">        canDelete = true,</span>
+<span class="nc" id="L22">        canEdit = true,</span>
+<span class="nc" id="L23">        isPinned = true,</span>
+<span class="nc" id="L24">        markedAsAds = false,</span>
+<span class="nc" id="L25">        isFavorite = true,</span>
+<span class="nc" id="L26">        postponedId = 0</span>
+    )
+
+<span class="nc" id="L29">    val postTwo = Post(</span>
+<span class="nc" id="L30">        id = 1,</span>
+<span class="nc" id="L31">        ownerId = 666,</span>
+<span class="nc" id="L32">        fromId = 111,</span>
+<span class="nc" id="L33">        createdBy = 5656,</span>
+<span class="nc" id="L34">        date = 12042022,</span>
+<span class="nc" id="L35">        text = &quot;Sun shine and it is okey&quot;,</span>
+<span class="nc" id="L36">        replyOwnerId = 7890,</span>
+<span class="nc" id="L37">        replyPostId = 2346,</span>
+<span class="nc" id="L38">        friendsOnly = false,</span>
+<span class="nc" id="L39">        comments = Comments(count = 18, canPost = true, groupsCanPost = false, canClose = true, canOpen = true),</span>
+<span class="nc" id="L40">        copyright = &quot;newspaper Pravda&quot;,</span>
+<span class="nc" id="L41">        likes = Likes(count = 25, userLikes = true, canLike = false, canPublish = true),</span>
+<span class="nc" id="L42">        reposts = Reposts(count = 3, userReposted = true),</span>
+<span class="nc" id="L43">        viewsCount = 15,</span>
+<span class="nc" id="L44">        postType = &quot;post&quot;,</span>
+<span class="nc" id="L45">        signerId = 8965,</span>
+<span class="nc" id="L46">        canPin = true,</span>
+<span class="nc" id="L47">        canDelete = true,</span>
+<span class="nc" id="L48">        canEdit = true,</span>
+<span class="nc" id="L49">        isPinned = true,</span>
+<span class="nc" id="L50">        markedAsAds = false,</span>
+<span class="nc" id="L51">        isFavorite = true,</span>
+<span class="nc" id="L52">        postponedId = 0</span>
+    )
+
+
+<span class="nc" id="L56">    val wall = WallService()</span>
+
+<span class="nc" id="L58">    val controlOne = wall.add(postOne)</span>
+<span class="nc" id="L59">    postTwo.id = controlOne.id</span>
+<span class="nc" id="L60">    wall.update(postTwo)</span>
+
+<span class="nc" id="L62">    println(controlOne.id)</span>
+<span class="nc" id="L63">    println(postTwo.id)</span>
+<span class="nc" id="L64">    println(wall.update(postTwo))</span>
+<span class="nc" id="L65">}</span>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
