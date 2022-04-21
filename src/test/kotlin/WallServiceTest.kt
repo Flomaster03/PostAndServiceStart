@@ -36,7 +36,7 @@ class WallServiceTest {
         val result = service.add(post).id
         val notZero: Boolean
         if (result > 0) notZero = true else notZero = false
-        assertEquals(true, notZero)
+        assertTrue(notZero)
     }
 
     @Test
@@ -122,7 +122,7 @@ class WallServiceTest {
         service.add(post3)
 
         val update = Post(
-            id = 0,
+            id = 2,
             ownerId = 666,
             fromId = 111,
             createdBy = 5656,
@@ -146,9 +146,9 @@ class WallServiceTest {
             isFavorite = true,
             postponedId = 0
         )
-        update.id = service.add(post1).id
+
         val result = service.update(update)
-        assertEquals(true, result)
+        assertTrue(result)
     }
 
     @Test
@@ -259,6 +259,6 @@ class WallServiceTest {
             postponedId = 0
         )
         val result = service.update(update)
-        assertEquals(false, result)
+        assertFalse(result)
     }
 }

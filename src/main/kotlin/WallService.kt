@@ -1,45 +1,30 @@
-internal class WallService {
+class WallService {
 
-    internal var postsArray = emptyArray<Post>()
+    private var postsArray = emptyArray<Post>()
 
-    internal fun add(post: Post): Post {
-        val changeId = (1..10000).random()
-        val postNew = post.copy(id = changeId)
-        postsArray += postNew
+    fun add(post: Post): Post {
+        val changeId = if (postsArray.size != 0) postsArray.last().id + 1 else 1
+        val postNext = post.copy(id = changeId)
+        postsArray += postNext
+
         return postsArray.last()
-
     }
 
-    internal fun update(post: Post): Boolean {
-        var change: Boolean = false
+    fun update(post: Post): Boolean {
+        var change = false
         for ((index, value) in postsArray.withIndex()) {
-            if (value.id == post.id) {
+            if (value.id != post.id) {
+                change = false
+                continue
+            } else {
                 postsArray[index] = value.copy(
-                    id = post.id,
-                    fromId = post.fromId,
-                    createdBy = post.createdBy,
-                    text = post.text,
-                    replyOwnerId = post.replyOwnerId,
-                    replyPostId = post.replyPostId,
-                    friendsOnly = post.friendsOnly,
-                    copyright = post.copyright,
-                    viewsCount = post.viewsCount,
-                    postType = post.postType,
-                    signerId = post.signerId,
-                    canPin = post.canPin,
-                    canDelete = post.canDelete,
-                    canEdit = post.canEdit,
-                    isPinned = post.isPinned,
-                    markedAsAds = post.markedAsAds,
-                    isFavorite = post.isFavorite,
-                    postponedId = post.postponedId
+                    ownerId = value.ownerId,
+                    date = value.date
                 )
                 change = true
-            } else {
-                change = false
+                break
             }
         }
         return change
-
     }
 }
